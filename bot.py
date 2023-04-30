@@ -1,5 +1,5 @@
 from dotenv import load_dotenv
-
+from wallpapers import *
 load_dotenv(
     "config.env",
     override=True,
@@ -8,6 +8,7 @@ import asyncio
 import os
 import shutil
 import time
+import random, os
 
 import psutil
 import pyromod
