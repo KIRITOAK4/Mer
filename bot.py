@@ -1,9 +1,11 @@
 from dotenv import load_dotenv
-from wallpapers import *
+
 load_dotenv(
     "config.env",
     override=True,
 )
+
+from wallpapers import *
 import asyncio
 import os
 import shutil
