@@ -188,8 +188,6 @@ async def broadcast_handler(c: Client, m: Message):
         + f"**Failed: {str(len-success)}**\n\n__🤓 Broadcast completed sucessfully__",
     )
 
-
-@mergeApp.on_message(filters.command(["start"]) & filters.private)
 @mergeApp.on_message(filters.command(["start"]) & filters.private)
 async def start_handler(c: Client, m: Message):
     user = UserSettings(m.from_user.id, m.from_user.first_name)
@@ -203,7 +201,8 @@ async def start_handler(c: Client, m: Message):
     images = os.listdir('./wallpapers')
     
     if user.allowed is False:
-        res = await m.reply_text(
+        res = await m.reply_photo(
+            photo= f'./wallpapers/{random.choice(images)}',
             text=f"Hi **{m.from_user.first_name}**\n\n 🛡️ Unfortunately you can't use me\n\n**Contact: 🈲 @{Config.OWNER_USERNAME}** ",
             quote=True,
         )
