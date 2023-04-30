@@ -197,10 +197,14 @@ async def start_handler(c: Client, m: Message):
 
     if m.from_user.id != int(Config.OWNER):
         reply = m.reply_to_message
-        user_id = reply.from_user.id
+        if reply is not None:
+            user_id = reply.from_user.id
+        else:
+            user_id = m.from_user.id  
     else:
         user_id = m.from_user.id  
-        
+    
+    # rest of your code ...
     images = os.listdir('./wallpapers')
     
     if user.allowed is False:
